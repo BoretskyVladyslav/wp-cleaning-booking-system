@@ -1,0 +1,326 @@
+@use 'variables' as *;
+
+.page-hero {
+    background-color: $bg-light;
+    padding: 80px 0 60px;
+    text-align: center;
+   
+    h1 {
+        font-size: 3rem; 
+        color: $secondary;
+        margin-bottom: 20px;
+        font-weight: 700;
+    }
+ 
+    p {  
+        color: $text; 
+        font-size: 1.2rem; 
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.6;
+    }
+}
+
+.about-story-section {
+    padding: 80px 0;
+
+    .story-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 50px;
+        align-items: center;
+
+        @media (min-width: 992px) {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    .story-content {
+        p {
+            font-size: 1.05rem;
+            color: $text-light;
+            margin-bottom: 20px;
+        }
+    }
+
+    .story-image {
+        border-radius: $radius;
+        overflow: hidden;
+        box-shadow: $shadow;
+
+        img {
+            width: 100%;
+            display: block;
+        }
+    }
+}
+
+.why-us-section {
+    padding: 80px 0;
+    background: $white;
+
+    .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+    }
+
+    .benefit-card {
+        text-align: center;
+        padding: 30px;
+        border-radius: $radius;
+        background: $bg-light;
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: $primary;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: $secondary;
+        }
+
+        p {
+            color: $text-light;
+            font-size: 0.95rem;
+        }
+    }
+}
+
+.video-section {
+    padding: 80px 0;
+    background: $bg-light;
+    text-align: center;
+
+    .section-title {
+        font-size: 2.5rem;
+        margin-bottom: 12px;
+        color: $text-dark;
+    }
+
+    .section-subtitle {
+        font-size: 1.1rem;
+        color: $text;
+        margin-bottom: 48px;
+    }
+
+    .before-after-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+        max-width: 1000px;
+        margin: 0 auto;
+
+        @media (min-width: 768px) {
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+    }
+
+    .before-after-item {
+        position: relative;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        border: 1px solid #e5e7eb;
+    }
+
+    .ba-image {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        display: block;
+    }
+
+    .ba-label {
+        position: absolute;
+        top: 16px;
+        left: 16px;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: $text-dark;
+        border: 1px solid #e5e7eb;
+    }
+}
+
+.reviews-section {
+    padding: 80px 0;
+    background: $bg-light;
+
+    .reviews-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+    }
+
+    .review-card {
+        background: $white;
+        padding: 30px;
+        border-radius: $radius;
+        box-shadow: $shadow;
+        display: flex;
+        flex-direction: column;
+
+        .stars {
+            color: #f59e0b;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: $text;
+            flex-grow: 1;
+        }
+
+        .author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 700;
+            color: $secondary;
+
+            .author-photo {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background-color: $bg-light;
+                background-size: cover;
+                background-position: center;
+            }
+        }
+    }
+}
+
+.contact-section {
+    padding: 80px 0;
+}
+
+.contact-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 50px;
+
+    @media (min-width: 992px) {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.contact-info-block {
+    .info-item {
+        margin-bottom: 35px;
+
+        h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            i {
+                color: $primary;
+                font-size: 1.4rem;
+            }
+        }
+
+        p {
+            padding-left: 35px;
+            color: $text;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+    }
+
+    .social-links {
+        margin-top: 40px;
+        padding-left: 35px;
+        display: flex;
+        gap: 15px;
+
+        a {
+            width: 45px;
+            height: 45px;
+            background: $bg-light;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $secondary;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+
+            &:hover {
+                background: $primary;
+                color: $white;
+                transform: translateY(-3px);
+            }
+        }
+    }
+}
+
+.contact-form-card {
+    background: $white;
+    padding: 40px;
+    border-radius: $radius;
+    box-shadow: $shadow;
+
+    h2 {
+        margin-bottom: 25px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid $border;
+            border-radius: 8px;
+            font-family: inherit;
+            transition: border-color 0.2s;
+
+            &:focus {
+                outline: none;
+                border-color: $primary;
+            }
+        }
+
+        textarea {
+            height: 120px;
+            resize: vertical;
+        }
+    }
+}
+
+.map-placeholder-full {
+    width: 100%;
+    height: 450px;
+    background: $bg-light;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $text-light;
+    font-size: 1.5rem;
+    font-weight: 500;
+}

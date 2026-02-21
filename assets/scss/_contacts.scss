@@ -1,0 +1,143 @@
+@use 'variables' as *;
+@use "sass:color";
+
+.contact-page-wrapper {
+    margin-bottom: 0;
+    /* Remove bottom margin as dark section takes over */
+    padding-bottom: 0;
+}
+
+.contact-header {
+    text-align: center;
+    /* Center header text */
+}
+
+/* --- Centered Contact Cards --- */
+.contact-grid-top {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.contact-card {
+    background: $white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.icon-box {
+    width: 50px;
+    height: 50px;
+    background: color.adjust($primary, $lightness: 45%);
+    color: $primary;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.contact-label {
+    display: block;
+    font-size: 0.9rem;
+    color: $text-light;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.contact-value {
+    font-size: 1.1rem;
+    color: $text;
+    font-weight: 700;
+}
+
+.contact-booking-box {
+    margin-top: 2rem;
+    padding: 2rem;
+    background-color: $bg-light;
+    border-radius: 1rem;
+    border: 1px solid $border;
+    text-align: center;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- DARK SERVICE AREA SECTION --- */
+.service-area-dark {
+    background-color: #2C3E50;
+    /* Dark Slate Theme */
+    color: #ffffff;
+    padding: 80px 0;
+    margin-top: 80px;
+
+    .section-title {
+        color: #ffffff;
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 50px;
+    }
+}
+
+.service-area-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 Columns Desktop */
+    gap: 15px 30px;
+    /* refined spacing */
+    max-width: 1200px;
+    margin: 0 auto;
+
+    @media (max-width: 991px) {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 Columns Tablet */
+    }
+
+    @media (max-width: 576px) {
+        grid-template-columns: 1fr;
+        /* 1 Column Mobile */
+    }
+}
+
+.service-city-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 16px;
+    /* Specified font size */
+    font-weight: 500;
+    padding: 8px 0;
+    cursor: default;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+
+    i {
+        color: $primary;
+        /* Brand Green Icon */
+        font-size: 1.1rem;
+        transition: transform 0.2s ease;
+    }
+
+    /* Hover Effect */
+    &:hover {
+        transform: translateY(-2px);
+        opacity: 1;
+
+        i {
+            transform: scale(1.1);
+        }
+    }
+}

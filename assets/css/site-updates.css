@@ -1,0 +1,147 @@
+/* =========================================
+   SITE ALIGNMENT UPDATES
+   ========================================= */
+
+/* Service Area Grid (Contact Page) */
+.service-area-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 800;
+    color: #1e293b;
+}
+
+.service-area-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.service-city-item {
+    background: #ffffff;
+    padding: 15px 20px;
+    /* More padding */
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+    font-weight: 500;
+    color: #374151;
+    transition: all 0.2s ease;
+    cursor: default;
+}
+
+.service-city-item:hover {
+    background: #f0f9ff;
+    border-color: #bae6fd;
+    color: #0284c7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 991px) {
+    .service-area-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .service-area-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Services Page Simplified Layout */
+.services-simple-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+
+.service-simple-item {
+    text-align: center;
+    background: #ffffff;
+    padding: 0;
+    /* Remove padding to let image flush if wanted, or keep for card look. Using padding for card look. */
+    border-radius: 16px;
+    overflow: hidden;
+    /* For image */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f3f4f6;
+    transition: transform 0.3s ease;
+}
+
+.service-simple-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.service-simple-item h3 {
+    font-size: 1.5rem;
+    margin: 20px 0;
+    color: #1e293b;
+    font-weight: 700;
+    padding: 0 20px;
+}
+
+.service-placeholder-img {
+    width: 100%;
+    height: 250px;
+    /* Fixed height for uniformity */
+    background-color: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9ca3af;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-placeholder-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.service-simple-item:hover .service-placeholder-img img {
+    transform: scale(1.05);
+}
+
+/* Footer Social Icons Update */
+.footer-social {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.footer-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.footer-social a:hover {
+    background: #3b82f6;
+    /* Brand Blue */
+    transform: translateY(-3px);
+}
+
+.footer-social a i {
+    font-size: 1.2rem;
+}
+
+/* Contact Page Placeholder Fix */
+.contact-image-placeholder {
+    background: #f8fafc !important;
+    border: 2px dashed #e2e8f0 !important;
+}

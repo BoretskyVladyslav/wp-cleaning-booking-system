@@ -1,0 +1,11 @@
+{
+  "name": "cleaning-theme",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "sass --watch assets/scss/style.scss:assets/css/main.css",
+    "build": "sass assets/scss/style.scss:assets/css/main.css --style compressed"
+  },
+  "dependencies": {
+    "sass": "^1.70.0"
+  }
+}

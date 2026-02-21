@@ -1,0 +1,848 @@
+@use 'variables' as *;
+@use 'sass:color';
+
+/* Hero Section */
+/* Hero Section */
+.hero-split-section {
+    background-color: $white;
+    min-height: auto;
+    padding: 0 0 100px 0;
+    /* Remove top padding, let bar be top */
+    /* More bottom padding for mobile */
+    position: relative;
+    overflow-x: hidden;
+    /* Prevent horizontal scroll from 100vw bar if using hack, but we can just place it normally if structure allows */
+
+    .container {
+        max-width: 1300px;
+        /* Expand container width */
+        margin-top: 60px;
+        /* Add spacing below the bar */
+    }
+}
+
+/* Green Call Bar Styles */
+.hero-call-bar {
+    width: 100vw;
+    background-color: $primary;
+    /* Brand Green */
+    color: $white;
+    font-size: 2rem;
+    /* Large font size */
+    font-weight: 800;
+    /* Extra Bold */
+    text-transform: uppercase;
+    /* Premium look */
+    letter-spacing: 1px;
+    text-align: center;
+    padding: 30px 0;
+    /* Generous breathing room */
+    margin-left: calc(-50vw + 50%);
+    /* Center hack for full bleed */
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+    a {
+        color: $white;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    @media (max-width: 768px) {
+        font-size: 1.4rem;
+        padding: 25px 15px;
+    }
+}
+
+.hero-top-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+
+    .hero-headline {
+        font-size: 3rem;
+        font-weight: 800;
+        color: $secondary;
+        line-height: 1.1;
+        margin-bottom: 15px;
+    }
+
+    .hero-subheadline {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: $primary;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .hero-description {
+        font-size: 1.1rem;
+        color: $text-light;
+        line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+        margin-bottom: 30px;
+
+        .hero-headline {
+            font-size: 2.2rem;
+        }
+    }
+}
+
+.hero-split-wrapper {
+    display: flex;
+    align-items: flex-start;
+    /* Important for Sticky */
+    gap: 40px;
+    width: 100%;
+    justify-content: space-between;
+
+    @media (max-width: 991px) {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
+
+/* =========================================
+   DESKTOP OVERRIDES (Strict 60/40 Split)
+   ========================================= */
+/* =========================================
+   DESKTOP OVERRIDES (Definitive 65/35)
+   ========================================= */
+@media (min-width: 992px) {
+
+    /* Left Column (Calculator - Flexible) */
+    .hero-left-calc {
+        flex: 1;
+        /* Takes remaining space */
+        min-width: 0;
+        /* Prevents overflow */
+    }
+
+    /* Right Column (Sidebar - Fluid 35%) */
+    .hero-right-receipt {
+        flex: 0 0 35%;
+        max-width: 35%;
+        position: relative;
+        height: auto;
+    }
+
+    /* Sticky Wrapper */
+    .sidebar-sticky-wrapper {
+        position: sticky;
+        top: 20px;
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+/* Ensure Grid works inside calculator */
+.grid-2-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    width: 100%;
+}
+
+/* =========================================
+   MOBILE (< 992px)
+   ========================================= */
+@media (max-width: 991px) {
+    .hero-left-calc {
+        width: 100%;
+        order: 1;
+    }
+
+    .hero-right-receipt {
+        width: 100%;
+        order: 2;
+        /* Receipt below form on mobile */
+    }
+}
+
+
+/* 
+   CALCULATOR WIDGET STYLES 
+   Target ID for higher specificity to override any fixed widths
+*/
+#cleaning-calculator-card.calculator-widget.compact-mode {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0;
+    padding: 40px;
+    /* Increased padding */
+    background-color: #ffffff;
+    border-radius: 20px;
+    /* Softer rounded corners */
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+
+    @media (max-width: 576px) {
+        padding: 25px;
+    }
+}
+
+/* Typography & Content Styles */
+.hero-content {
+    width: 100%;
+
+    h1.hero-headline {
+        font-size: 3.5rem;
+        font-weight: 800;
+        color: $secondary;
+        line-height: 1.1;
+        margin-bottom: 20px;
+
+        @media (max-width: 768px) {
+            font-size: 2.5rem;
+        }
+    }
+
+    p.hero-subheadline {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: $primary;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    p.hero-description {
+        font-size: 1.15rem;
+        color: $text-light;
+        margin-bottom: 30px;
+        line-height: 1.6;
+    }
+}
+
+.trust-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px 0;
+    width: 100%;
+
+    .trust-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 12px;
+        font-size: 1.05rem;
+        color: $text-dark;
+        font-weight: 500;
+
+        .trust-check {
+            color: $white;
+            background: #22c55e;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 991px) {
+            justify-content: center;
+        }
+    }
+}
+
+.special-offer-banner {
+    background: linear-gradient(135deg, #fff 0%, #fefce8 100%);
+    border: 1px dashed #eab308;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 4px 15px rgba(234, 179, 8, 0.1);
+    width: 100%;
+
+    .offer-icon {
+        background: #eab308;
+        color: #fff;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        flex-shrink: 0;
+    }
+
+    .offer-text {
+        text-align: left;
+
+        .offer-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: $text-dark;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .offer-message {
+            font-size: 0.95rem;
+            color: $text-light;
+            margin: 0;
+        }
+    }
+
+    @media (max-width: 991px) {
+        width: 100%;
+        justify-content: center;
+        text-align: left;
+    }
+}
+
+/* Calc Header */
+.calc-header {
+    margin-bottom: 30px;
+    text-align: center;
+
+    h2 {
+        font-size: 2rem;
+        font-weight: 800;
+        color: $secondary;
+        margin-bottom: 8px;
+        line-height: 1.2;
+    }
+
+    .calc-subtitle {
+        font-size: 1.1rem;
+        color: $text-light;
+    }
+}
+
+/* Form Layout */
+.compact-form {
+    .form-row {
+        margin-bottom: 25px;
+    }
+
+    .section-label-sm {
+        display: block;
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: $text-light;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+        letter-spacing: 0.8px;
+    }
+
+    .calc-section {
+        margin-bottom: 30px;
+        padding-bottom: 30px;
+        border-bottom: 1px dashed $border;
+
+        &:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+/* Service Type Row */
+.service-type-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+
+    @media (max-width: 576px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+}
+
+.service-type-card {
+    position: relative;
+    cursor: pointer;
+
+    input {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .card-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 10px;
+        background: $bg-light;
+        border: 2px solid transparent;
+        border-radius: 10px;
+        transition: all 0.2s;
+        height: 100%;
+        text-align: center;
+        min-height: 100px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+
+        i {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: $text-light;
+            transition: color 0.2s;
+        }
+
+        .card-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: $text-dark;
+            line-height: 1.2;
+        }
+    }
+
+    input:checked+.card-inner {
+        border-color: $primary;
+        background: rgba($primary, 0.05);
+        box-shadow: 0 4px 12px rgba($primary, 0.15);
+
+        i,
+        .card-title {
+            color: $primary;
+        }
+    }
+
+    &:hover .card-inner {
+        background: #fff;
+        border-color: $border;
+    }
+
+    input:checked+.card-inner:hover {
+        background: rgba($primary, 0.08);
+        border-color: $primary;
+    }
+}
+
+/* Grids */
+.grid-3-cols {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+
+    @media (max-width: 576px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+/* Grid 2 Cols (Internal Calculator) */
+.grid-2-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    /* Increased gap */
+    width: 100%;
+
+    @media (max-width: 576px) {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}
+
+/* Counter Inputs (Bedrooms/Bathrooms) */
+.counter-input-group {
+    background: $bg-light;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding: 12px;
+    text-align: center;
+    transition: all 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+
+    &:hover {
+        border-color: $border;
+        background: $white;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    label {
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: $text-light;
+        text-transform: uppercase;
+        display: block;
+        margin-bottom: 8px;
+        letter-spacing: 0.5px;
+    }
+
+    .counter-control {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+
+        .counter-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            border: 1px solid $border;
+            background: $white;
+            color: $text-dark;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            font-size: 18px;
+            padding: 0;
+
+            &:hover {
+                background: $primary;
+                color: $white;
+                border-color: $primary;
+                transform: translateY(-1px);
+            }
+
+            &:active {
+                transform: translateY(1px);
+            }
+        }
+
+        input {
+            width: 36px;
+            border: none;
+            text-align: center;
+            font-weight: 700;
+            font-size: 18px;
+            color: $secondary;
+            padding: 0;
+            background: transparent;
+        }
+    }
+}
+
+/* Input Fields */
+/* Input Fields (Taller & Sleeker) */
+.compact-input,
+.compact-select {
+    width: 100%;
+    padding: 0 20px;
+    /* Horizontal padding only, height handles vertical */
+    border: 1px solid $border;
+    border-radius: 10px;
+    font-size: 16px;
+    /* Larger font */
+    color: $text;
+    background: $bg-light;
+    outline: none;
+    transition: all 0.2s;
+    height: 50px;
+    /* Touch-friendly 50px */
+    line-height: 50px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.01);
+
+    &:focus {
+        border-color: $primary;
+        background: $white;
+        box-shadow: 0 0 0 4px rgba($primary, 0.1);
+    }
+}
+
+/* Extras Grid */
+.addons-grid-compact {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 12px;
+}
+
+.addon-counter-item {
+    background: $white;
+    border: 1px solid $border;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 90px;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        border-color: color.adjust($border, $lightness: -5%);
+    }
+
+    .addon-label {
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: $text-dark;
+        margin-bottom: 8px;
+        line-height: 1.2;
+    }
+
+    .counter-control.sm {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        justify-content: center;
+
+        .counter-btn {
+            width: 24px;
+            height: 24px;
+            font-size: 14px;
+            background: $bg-light;
+            border-radius: 4px;
+            border: 1px solid transparent;
+            color: $text-light;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &:hover {
+                border-color: $border;
+                background: $white;
+                color: $primary;
+                border: 1px solid $border;
+            }
+        }
+
+        input {
+            font-size: 14px;
+            width: 24px;
+            text-align: center;
+            border: none;
+            background: transparent;
+            font-weight: bold;
+            padding: 0;
+            margin: 0;
+            color: $text-dark;
+        }
+    }
+
+    &:has(input:not([value="0"])),
+    &:has(input:checked),
+    &.active {
+        border-color: $primary;
+        background: rgba($primary, 0.04);
+        box-shadow: 0 4px 12px rgba($primary, 0.1);
+
+        .addon-label {
+            color: $primary;
+        }
+
+        .counter-control.sm .counter-btn {
+            background: #fff;
+            color: $primary;
+            border: 1px solid rgba($primary, 0.2);
+        }
+    }
+}
+
+/* Footer & Button */
+.calc-footer-compact {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px dashed $border;
+
+    .price-wrapper {
+        display: flex;
+        flex-direction: column;
+
+        .label {
+            font-size: 0.8rem;
+            color: $text-light;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: $secondary;
+            line-height: 1;
+        }
+    }
+
+    .btn-book-now-compact {
+        background: $primary;
+        color: $white;
+        border: none;
+        padding: 15px 40px;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s;
+        box-shadow: 0 4px 15px rgba($primary, 0.3);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba($primary, 0.4);
+            background: color.adjust($primary, $lightness: -5%);
+        }
+
+        &:active {
+            transform: translateY(1px);
+        }
+    }
+}
+
+
+/* 
+   ORDER SUMMARY CARD (RECEIPT) 
+*/
+.order-summary-card {
+    background: $white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    /* Sticky Removed from here, moved to Column */
+    /* position: sticky; */
+    /* top: 20px; */
+    /* z-index: 10; */
+
+    .receipt-header {
+        border-bottom: 2px solid $bg-light;
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: $secondary;
+            margin: 0;
+        }
+    }
+
+    .receipt-list {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 20px 0;
+
+        .receipt-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            font-size: 0.95rem;
+            color: $text-dark;
+            border-bottom: 1px dashed rgba(0, 0, 0, 0.05);
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            span:last-child {
+                font-weight: 700;
+                color: $text-dark;
+            }
+
+            &.placeholder {
+                font-style: italic;
+                color: $text-light;
+            }
+        }
+    }
+
+    .receipt-divider {
+        height: 1px;
+        background: $border;
+        margin: 20px 0;
+    }
+
+    .receipt-total {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+
+        .label {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: $text-light;
+            text-transform: uppercase;
+        }
+
+        .price {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: $primary;
+            line-height: 1;
+        }
+    }
+
+    .btn-book-now-full {
+        width: 100%;
+        background: $primary;
+        color: $white;
+        border: none;
+        padding: 18px;
+        border-radius: 10px;
+        font-size: 1.2rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s;
+        box-shadow: 0 4px 15px rgba($primary, 0.3);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba($primary, 0.4);
+            background: color.adjust($primary, $lightness: -5%);
+        }
+
+        &:active {
+            transform: translateY(1px);
+        }
+    }
+
+    .receipt-secure {
+        text-align: center;
+        font-size: 0.85rem;
+        color: $text-light;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+
+        i {
+            color: #22c55e;
+        }
+    }
+}
+
+/* 
+   TRUST CARD (Fills Sidebar Whitespace) 
+*/
+.trust-card {
+    margin-top: 20px;
+    background: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+}

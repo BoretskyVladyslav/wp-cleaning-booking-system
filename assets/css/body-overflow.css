@@ -1,0 +1,4 @@
+/* Prevent horizontal scroll from 100vw hack */
+body {
+    overflow-x: hidden;
+}

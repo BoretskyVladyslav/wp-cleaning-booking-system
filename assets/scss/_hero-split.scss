@@ -1,0 +1,729 @@
+@use 'variables' as *;
+@use "sass:color";
+
+// ===================================
+// HERO SPLIT SECTION - STRICT BUSINESS MODE
+// ===================================
+
+.hero-split-section {
+    background: #f9fafb; 
+    padding: 60px 0;
+    min-height: auto;
+
+    @media (max-width: 991px) { 
+        padding: 40px 0;
+    }
+}  
+ 
+.hero-split-wrapper {  
+    display: grid; 
+    grid-template-columns: 0.8fr 1.2fr; 
+    gap: 50px; 
+    align-items: start; // Top alignment  
+ 
+    @media (max-width: 991px) {    
+        grid-template-columns: 1fr; 
+        gap: 30px; 
+    }
+}
+
+// ===================================
+// LEFT COLUMN: TRUST & VALUE PROPS
+// ===================================
+
+.hero-left {
+    padding-right: 20px;
+    align-self: start; // Ensure top alignment
+
+    @media (max-width: 991px) {
+        padding-right: 0;
+        text-align: center;
+    }
+}
+
+.hero-headline {
+    font-size: 42px;
+    font-weight: 700;
+    color: $secondary;
+    line-height: 1.2;
+    margin-bottom: 12px;
+
+    @media (max-width: 991px) {
+        font-size: 32px;
+    }
+
+    @media (max-width: 576px) {
+        font-size: 28px;
+    }
+}
+
+.hero-subheadline {
+    font-size: 20px;
+    font-weight: 600;
+    color: $primary;
+    margin-bottom: 20px;
+
+    @media (max-width: 991px) {
+        font-size: 18px;
+    }
+}
+
+.hero-description {
+    font-size: 15px;
+    line-height: 1.6;
+    color: $text;
+    margin-bottom: 24px;
+}
+
+// Trust Bullets - Compact
+.trust-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px 0;
+
+    @media (max-width: 991px) {
+        display: inline-block;
+        text-align: left;
+    }
+}
+
+.trust-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: $text-dark;
+}
+
+.trust-check {
+    font-size: 18px;
+    font-weight: bold;
+    color: $primary;
+    flex-shrink: 0;
+}
+
+// Special Offer Banner - Blue Theme
+.special-offer-banner {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+
+    @media (max-width: 991px) {
+        flex-direction: row;
+        text-align: left;
+    }
+}
+
+.offer-icon {
+    width: 40px;
+    height: 40px;
+    background: $primary;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    i {
+        color: $white;
+        font-size: 20px;
+    }
+}
+
+.offer-text {
+    flex: 1;
+
+    p {
+        margin: 0;
+    }
+}
+
+.offer-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1e40af;
+    line-height: 1.3;
+}
+
+.offer-message {
+    font-size: 13px;
+    color: #3b82f6;
+    margin-top: 2px;
+}
+
+// Owner Portrait - Vertical 9:16 Phone Photo
+.owner-portrait {
+    margin-top: 24px;
+    display: flex;
+    justify-content: flex-start;
+
+    @media (max-width: 991px) {
+        justify-content: center;
+    }
+}
+
+.owner-photo-large {
+    width: 100%;
+    max-width: 300px; // Phone-style width
+    aspect-ratio: 9 / 16; // Force vertical ratio
+    object-fit: cover; // Fill frame without distortion
+    border-radius: 20px; // Rounded rectangle (not circle)
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border: 3px solid $white;
+
+    @media (max-width: 991px) {
+        max-width: 280px;
+    }
+}
+
+// ===================================
+// RIGHT COLUMN: CALCULATOR WIDGET - COMPACT
+// ===================================
+
+.hero-right {
+    display: flex;
+    justify-content: center;
+}
+
+.calculator-widget {
+    background: $white;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    padding: 24px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    width: 100%;
+    max-width: 600px;
+
+    @media (max-width: 576px) {
+        padding: 20px;
+        border-radius: 6px;
+    }
+}
+
+.calc-header {
+    text-align: center;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e5e7eb;
+
+    h2 {
+        font-size: 24px;
+        font-weight: 700;
+        color: $secondary;
+        margin: 0 0 4px 0;
+    }
+
+    .calc-subtitle {
+        font-size: 14px;
+        color: $text-light;
+        margin: 0;
+    }
+}
+
+.calc-section {
+    margin-bottom: 20px;
+
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+}
+
+.section-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: #64748b;
+    margin: 0 0 12px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+// Service Type Grid - 4 Columns, Compact
+.service-type-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+
+    @media (max-width: 576px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.service-type-card {
+    cursor: pointer;
+    position: relative;
+    display: block;
+
+    input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .card-inner {
+        padding: 20px 15px;
+        border: 2px solid #d1d5db;
+        border-radius: 12px;
+        background: $white;
+        text-align: center;
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        min-height: 110px;
+
+        i.fa-light,
+        i.fa-solid:not(.tooltip-icon) {
+            font-size: 28px;
+            color: #9ca3af;
+            transition: color 0.3s ease;
+        }
+
+        .card-title {
+            font-weight: 700;
+            font-size: 14px;
+            color: $text-dark;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+
+            .tooltip-icon {
+                font-size: 12px;
+                color: $primary;
+                cursor: help;
+            }
+        }
+
+        .card-subtitle {
+            font-size: 11px;
+            color: #9ca3af;
+            line-height: 1.3;
+        }
+    }
+
+    // Tooltip
+    &[data-tooltip]::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        bottom: calc(100% + 10px);
+        left: 50%;
+        transform: translateX(-50%) scale(0.9);
+        background: rgba(0, 0, 0, 0.9);
+        color: white;
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-size: 12px;
+        white-space: nowrap;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+        z-index: 1000;
+        font-weight: 400;
+    }
+
+    &[data-tooltip]:hover::after,
+    &[data-tooltip]:active::after {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+    }
+
+    // Checked state
+    input[type="radio"]:checked+.card-inner {
+        border-color: $primary;
+        background: rgba($primary, 0.05);
+
+        i.fa-light,
+        i.fa-solid:not(.tooltip-icon) {
+            color: $primary;
+        }
+
+        .card-title {
+            color: $primary;
+        }
+    }
+
+    // Hover state
+    &:hover .card-inner {
+        border-color: $primary;
+        transform: translateY(-2px);
+    }
+}
+
+// Home Details - Compact
+.home-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.counter-group {
+    label {
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        color: $text-dark;
+        margin-bottom: 6px;
+    }
+}
+
+.counter-control {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    overflow: hidden;
+    background: $white;
+
+    input[type="number"] {
+        flex: 1;
+        border: none;
+        text-align: center;
+        font-size: 15px;
+        font-weight: 600;
+        color: $text-dark;
+        height: 42px;
+        background: $white;
+
+        /* Hide spinner */
+        appearance: textfield;
+        -moz-appearance: textfield;
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    }
+}
+
+.counter-btn {
+    width: 42px;
+    height: 42px;
+    border: none;
+    background: #f9fafb;
+    color: $text-dark;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;
+
+    &:first-child {
+        border-left: none;
+    }
+
+    &:last-child {
+        border-right: none;
+    }
+
+    &:hover {
+        background: $primary;
+        color: $white;
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
+}
+
+.sqft-group {
+    label {
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        color: $text-dark;
+        margin-bottom: 6px;
+    }
+}
+
+// Modern Input Styles - Compact (42px height)
+.modern-select,
+.modern-input {
+    width: 100%;
+    height: 42px;
+    padding: 0 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+    color: $text-dark;
+    background: $white;
+    transition: all 0.2s;
+
+    &:focus {
+        outline: none;
+        border-color: $primary;
+        box-shadow: 0 0 0 3px rgba($primary, 0.1);
+    }
+
+    &::placeholder {
+        color: #9ca3af;
+    }
+}
+
+// Extras Grid - Compact 2-column
+.extras-checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+
+    @media (max-width: 480px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.extra-checkbox {
+    cursor: pointer;
+    position: relative;
+
+    input {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .checkbox-inner {
+        background: $white;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        padding: 10px 12px;
+        text-align: left;
+        transition: all 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        i {
+            font-size: 18px;
+            color: #9ca3af;
+            transition: color 0.2s;
+            flex-shrink: 0;
+        }
+
+        .extra-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: $text-dark;
+            flex: 1;
+        }
+
+        .extra-price {
+            font-size: 12px;
+            color: $primary;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+    }
+
+    input:checked+.checkbox-inner {
+        border-color: $primary;
+        background: rgba($primary, 0.03);
+
+        i {
+            color: $primary;
+        }
+
+        .extra-name {
+            color: $primary;
+        }
+    }
+
+    &:hover .checkbox-inner {
+        border-color: $primary;
+    }
+}
+
+// User Info Grid - Compact
+.user-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+
+    .full-width {
+        grid-column: 1 / -1;
+    }
+
+    @media (max-width: 480px) {
+        grid-template-columns: 1fr;
+
+        .modern-input,
+        .modern-select {
+            grid-column: 1;
+        }
+    }
+}
+
+// Calculator Footer - Compact
+.calc-footer {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.price-display {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+
+    .price-label {
+        font-size: 16px;
+        font-weight: 600;
+        color: $text;
+    }
+
+    .price-value {
+        font-size: 32px;
+        font-weight: 800;
+        color: $primary;
+    }
+}
+
+.quote-badge {
+    background: #fef3c7;
+    border: 1px solid #fcd34d;
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin-bottom: 12px;
+    font-size: 12px;
+    color: #92400e;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    i {
+        color: #f59e0b;
+    }
+}
+
+.btn-book-now {
+    width: 100%;
+    height: 48px;
+    min-height: 44px; // Ensure minimum touch target
+    background: $primary;
+    color: $white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    &:hover {
+        background: color.adjust($primary, $lightness: -10%);
+    }
+
+    &:active {
+        transform: translateY(1px);
+    }
+
+    i {
+        font-size: 16px;
+    }
+
+    @media (max-width: 400px) {
+        height: 44px;
+        font-size: 15px;
+    }
+}
+
+// =========================================
+// NUCLEAR OVERRIDES (FORCE LAYOUT)
+// =========================================
+
+/* 1. Force Main Container Width */
+.hero-split-wrapper {
+    display: flex !important;
+    align-items: flex-start !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    max-width: 1400px !important;
+    gap: 40px !important;
+    margin: 0 auto !important;
+
+    @media (max-width: 991px) {
+        flex-direction: column !important;
+        gap: 30px !important;
+    }
+}
+
+/* 2. Force 65% Calculator Width */
+.hero-left-calc {
+    flex: 1 1 65% !important;
+    width: auto !important;
+    max-width: none !important;
+    min-width: 600px !important;
+    /* CRITICAL: Prevent squeeze */
+    padding-right: 0 !important;
+
+    @media (max-width: 991px) {
+        width: 100% !important;
+        min-width: 0 !important;
+        flex: 1 1 auto !important;
+    }
+}
+
+/* 3. Force Internal Form Grid (The "Wide Look") */
+.home-details-grid,
+.grid-2-cols {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 20px !important;
+    width: 100% !important;
+
+    @media (max-width: 576px) {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Force specific containers if they are block */
+.calc-section .grid-2-cols {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+}
+
+/* 4. Force Fixed Sidebar Width */
+.hero-right-receipt {
+    flex: 0 0 380px !important;
+    width: 380px !important;
+    max-width: 380px !important;
+
+    @media (max-width: 991px) {
+        width: 100% !important;
+        max-width: none !important;
+        flex: 1 1 auto !important;
+    }
+}
+
+/* 5. Ensure Calculator Widget Expands */
+#cleaning-calculator-card.calculator-widget,
+.calculator-widget {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 40px !important;
+}
+
+/* 6. Form Inputs Full Width */
+.compact-input,
+.compact-select,
+.modern-input,
+.modern-select {
+    width: 100% !important;
+    box-sizing: border-box !important;
+}

@@ -1,0 +1,34 @@
+/* Hero Call Bar */
+.hero-call-bar {
+    background-color: #2e7d32;
+    /* Brand green - adjusting to a solid professional green */
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    font-size: 1.5rem;
+    /* Large font */
+    font-weight: 700;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.hero-call-bar a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.hero-call-bar a:hover {
+    text-decoration: underline;
+}
+
+/* Adjust split section padding since we added the bar */
+.hero-split-section {
+    padding-top: 0;
+}
+
+@media (max-width: 768px) {
+    .hero-call-bar {
+        font-size: 1.2rem;
+        padding: 15px;
+    }
+}

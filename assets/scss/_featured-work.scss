@@ -1,0 +1,122 @@
+@use 'variables' as *;
+@use 'sass:color';
+
+// ===================================
+// FEATURED WORK PLACEHOLDERS SECTION
+// ===================================
+
+.featured-work-section {
+    padding: 60px 0;
+    background: $white;
+    border-bottom: 1px solid $border;
+
+    @media (max-width: 768px) {
+        padding: 40px 0;
+    }
+
+    .section-header {
+        text-align: center;
+        margin-bottom: 40px;
+
+        @media (max-width: 768px) {
+            margin-bottom: 30px;
+        }
+    }
+
+    .section-title {
+        font-size: 32px;
+        font-weight: 800;
+        color: $secondary;
+        margin-bottom: 12px;
+
+        @media (max-width: 768px) {
+            font-size: 26px;
+        }
+    }
+
+    .section-subtitle {
+        font-size: 16px;
+        color: $text-light;
+        font-weight: 400;
+    }
+}
+
+// Work Grid (4 columns desktop, 2 tablet, 1 mobile)
+.work-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+
+    @media (max-width: 991px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 576px) {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+
+// Placeholder Item
+.work-placeholder-item {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    background: #f0f2f5;
+    border: 2px dashed #ccc;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+        transform: translateY(-5px);
+        border-color: rgba($primary, 0.5);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+
+        .placeholder-content {
+            i {
+                transform: scale(1.1);
+                color: $primary;
+            }
+        }
+    }
+}
+
+// Placeholder Content (centered text + icon)
+.placeholder-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 20px;
+    text-align: center;
+
+    i {
+        font-size: 48px;
+        color: #bbb;
+        transition: all 0.3s ease;
+
+        @media (max-width: 576px) {
+            font-size: 36px;
+        }
+    }
+
+    span {
+        font-size: 14px;
+        font-weight: 600;
+        color: #888;
+        line-height: 1.5;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+
+        @media (max-width: 576px) {
+            font-size: 12px;
+        }
+    }
+}

@@ -1,0 +1,119 @@
+@use 'variables' as *;
+
+.benefits-section {
+    padding: 100px 0;
+    background-color: $white;
+}
+
+.benefits-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+
+    @media (max-width: 991px) {
+        flex-direction: column;
+        gap: 40px;
+    }
+}
+
+.benefits-content {
+    flex: 1; 
+
+    .section-title {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+
+    .benefits-desc {
+        color: $text-light;
+        font-size: 1.1rem;
+        margin-bottom: 40px;
+    }
+}
+
+.benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.benefit-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 15px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background-color: rgba($primary, 0.03);
+        transform: translateY(-5px);
+
+        .check-icon {
+            background-color: $primary;
+            color: $white;
+            transform: scale(1.1);
+        }
+    }
+
+    .check-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 32px;
+        height: 32px;
+        background-color: rgba($primary, 0.1);
+        color: $primary;
+        border-radius: 50%;
+        font-weight: bold;
+        font-size: 14px;
+        margin-top: 2px;
+        transition: all 0.3s ease;
+    }
+
+    .benefit-text {
+        strong {
+            display: block;
+            color: $secondary;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        p {
+            color: $text-light;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+    }
+}
+
+.benefits-image {
+    flex: 1;
+    width: 100%;
+
+    .image-placeholder {
+        width: 100%;
+        height: 400px;
+        background-color: $bg-light;
+        border-radius: $radius;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $text-light;
+        font-weight: 600;
+        border: 2px dashed $border;
+    }
+
+    .benefits-photo,
+    img {
+        width: 100%;
+        height: auto;
+        max-height: 500px;
+        object-fit: cover;
+        border-radius: $radius;
+        box-shadow: $shadow;
+    }
+}
